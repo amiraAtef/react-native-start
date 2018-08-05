@@ -9,8 +9,10 @@ import {
 
 export class Login extends Component {
   render() {
+    const { navigate } = this.props.navigation;
+
     return(<View style={styles.container}>
-      <ImageBackground source={require('./img/LoginBG.jpg')} style={styles.BGImage} >
+      <ImageBackground source={require('./img/WelcomeBG.jpg')} style={styles.BGImage} >
         <View style={styles.content}>
           <Text style={styles.Logo} >Manage Your Content</Text>
           <View style={styles.inputContainer}>
@@ -19,8 +21,14 @@ export class Login extends Component {
           <TextInput secureTextEntry={true} underlineColorAndroid='transparent' style={styles.input } placeholder='Password'>
           </TextInput>
 <TouchableOpacity onPress={this.login} style={styles.buttonContainer}>
-<Text style={styles.buttonText}>
+<Text style={styles.buttonText}   onPress={() =>this.props.navigation.navigate('Home', { name: 'Jane' })}
+>
 Login
+</Text>
+</TouchableOpacity>
+<TouchableOpacity onPress={this.SignUp} style={styles.buttonContainer}>
+<Text style={styles.buttonText}>
+SignUp
 </Text>
 </TouchableOpacity>
             </View>
@@ -80,10 +88,10 @@ const styles = StyleSheet.create({
     alignSelf:'stretch',
     margin:20,
     padding:20,
-    backgroundColor:'blue',
+    backgroundColor:'yellow',
     borderWidth:1,
     borderColor:'#fff',
-    backgroundColor:'rgba(255,255,255,0.6)'
+    backgroundColor:'rgb(240,230,140)'
 
 
   }
