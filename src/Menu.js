@@ -25,16 +25,16 @@ export default class Menu extends Component {
                     </View>
                 </View>
 
-   <View style={styles.section}>
-                    <Icon name="users" size={30} color="#900" />
-                    <Text style={styles.text}>create</Text>
-                </View>
-
-
                 <View style={styles.section}>
+                    <Icon name="id-card" size={30} color="#900" />
+                    <Text style={styles.text}>Nuggets</Text>
+                </View>
+   <View style={styles.section}>
                     <Icon name="users" size={30} color="#900" />
                     <Text style={styles.text}>Groups</Text>
                 </View>
+
+
 
                 <View style={styles.section}>
                     <Icon name="sign-out" size={30} color="#900" />
