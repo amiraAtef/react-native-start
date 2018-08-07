@@ -173,22 +173,23 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 2 errors and 9 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 1 error and 12 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Sun Jul 29 12:02:52 EET 2018      </nav>
+Check performed at Tue Aug 07 15:30:27 EET 2018      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Issue Types</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
+      <a class="mdl-navigation__link" href="#DefaultLocale"><i class="material-icons warning-icon">warning</i>Implied default locale in case conversion (1)</a>
       <a class="mdl-navigation__link" href="#InlinedApi"><i class="material-icons warning-icon">warning</i>Using inlined constants on older versions (1)</a>
-      <a class="mdl-navigation__link" href="#NewApi"><i class="material-icons error-icon">error</i>Calling new methods on older versions (2)</a>
-      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
+      <a class="mdl-navigation__link" href="#NewApi"><i class="material-icons error-icon">error</i>Calling new methods on older versions (1)</a>
+      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (2)</a>
       <a class="mdl-navigation__link" href="#SimpleDateFormat"><i class="material-icons warning-icon">warning</i>Implied locale in date format (2)</a>
       <a class="mdl-navigation__link" href="#GradleDependency"><i class="material-icons warning-icon">warning</i>Obsolete Gradle Dependency (1)</a>
-      <a class="mdl-navigation__link" href="#GradleDynamicVersion"><i class="material-icons warning-icon">warning</i>Gradle Dynamic Version (2)</a>
+      <a class="mdl-navigation__link" href="#GradleDynamicVersion"><i class="material-icons warning-icon">warning</i>Gradle Dynamic Version (3)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (1)</a>
       <a class="mdl-navigation__link" href="#GoogleAppIndexingWarning"><i class="material-icons warning-icon">warning</i>Missing support for Firebase App Indexing (1)</a>
     </nav>
@@ -207,12 +208,15 @@ Check performed at Sun Jul 29 12:02:52 EET 2018      </nav>
 </td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
-<a href="#InlinedApi">InlinedApi</a>: Using inlined constants on older versions</td></tr>
-<tr>
-<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
-<a href="#NewApi">NewApi</a>: Calling new methods on older versions</td></tr>
+<a href="#DefaultLocale">DefaultLocale</a>: Implied default locale in case conversion</td></tr>
 <tr>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#InlinedApi">InlinedApi</a>: Using inlined constants on older versions</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<a href="#NewApi">NewApi</a>: Calling new methods on older versions</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#OldTargetApi">OldTargetApi</a>: Target SDK attribute is not targeting latest version</td></tr>
 <tr>
 <td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
@@ -221,7 +225,7 @@ Check performed at Sun Jul 29 12:02:52 EET 2018      </nav>
 <td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#GradleDependency">GradleDependency</a>: Obsolete Gradle Dependency</td></tr>
 <tr>
-<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#GradleDynamicVersion">GradleDynamicVersion</a>: Gradle Dynamic Version</td></tr>
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
 </td></tr>
@@ -242,8 +246,56 @@ Dismiss</button>            </div>
             </div>
           </section>
 <a name="Correctness"></a>
-<a name="InlinedApi"></a>
+<a name="DefaultLocale"></a>
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card1" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Implied default locale in case conversion</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../../../node_modules/react-native-interactable/android/src/main/java/com/wix/interactable/InteractableViewManager.java">../../../../node_modules/react-native-interactable/android/src/main/java/com/wix/interactable/InteractableViewManager.java</a>:73</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>String.format(Locale, ...)</code> instead</span><br /><pre class="errorlines">
+<span class="lineno">  70 </span>                <span class="keyword">return</span>;
+<span class="lineno">  71 </span>            }
+<span class="lineno">  72 </span>            <span class="keyword">default</span>:
+<span class="caretline"><span class="lineno">  73 </span>                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="warning">String.format(</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  74 </span>                        <span class="string">"Unsupported command %d received by %s."</span>,
+<span class="lineno">  75 </span>                        commandType,
+<span class="lineno">  76 </span>                        getClass().getSimpleName()));
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationDefaultLocale" style="display: none;">
+Calling <code>String#toLowerCase()</code> or <code>#toUpperCase()</code> <b>without specifying an explicit locale</b> is a common source of bugs. The reason for that is that those methods will use the current locale on the user's device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for <code>i</code> is <b>not</b> <code>I</code>.<br/>
+<br/>
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call <code>String#toUpperCase(Locale.US)</code> instead. If you really want to use the current locale, call <code>String#toUpperCase(Locale.getDefault())</code> instead.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/java/util/Locale.html#default_locale">http://developer.android.com/reference/java/util/Locale.html#default_locale</a>
+</div><br/>To suppress this error, use the issue id "DefaultLocale" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+</div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">DefaultLocale</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDefaultLocaleLink" onclick="reveal('explanationDefaultLocale');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card1Link" onclick="hideid('card1');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="InlinedApi"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card2" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Using inlined constants on older versions</h2>
@@ -289,11 +341,11 @@ To suppress this error, use the issue id "InlinedApi" as explained in the <a hre
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationInlinedApiLink" onclick="reveal('explanationInlinedApi');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card1Link" onclick="hideid('card1');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card2Link" onclick="hideid('card2');">
 Dismiss</button>            </div>
             </div>
           </section><a name="NewApi"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card2" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card3" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Calling new methods on older versions</h2>
@@ -311,19 +363,6 @@ Dismiss</button>            </div>
 <span class="lineno"> 181 </span>        }
 </pre>
 
-<span class="location"><a href="../../../../node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/utils/MediaUtils.java">../../../../node_modules/react-native-image-picker/android/src/main/java/com/imagepicker/utils/MediaUtils.java</a>:181</span>: <span class="message">Call requires API level 19 (current min is 16): <code>java.lang.Throwable#addSuppressed</code></span><br /><pre class="errorlines">
-<span class="lineno"> 178 </span>        <span class="keyword">try</span> (FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(result.resized))
-<span class="lineno"> 179 </span>        {
-<span class="lineno"> 180 </span>            bytes.writeTo(fos);
-</span><span class="caretline"><span class="lineno"> 181 </span><span class="error">        }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 182 </span>        <span class="keyword">catch</span> (IOException e)
-<span class="lineno"> 183 </span>        {
-<span class="lineno"> 184 </span>            e.printStackTrace();
-</pre>
-
-
-Applies to variants: debug<br/>
-Does <b>not</b> apply to variants: release<br/>
 </div>
 <div class="metadata"><div class="explanation" id="explanationNewApi" style="display: none;">
 This check scans through all the Android API calls in the application and warns about any calls that are not available on <b>all</b> versions targeted by this application (according to its minimum SDK attribute in the manifest).<br/>
@@ -356,11 +395,11 @@ To suppress this error, use the issue id "NewApi" as explained in the <a href="#
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationNewApiLink" onclick="reveal('explanationNewApi');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card2Link" onclick="hideid('card2');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card3Link" onclick="hideid('card3');">
 Dismiss</button>            </div>
             </div>
           </section><a name="OldTargetApi"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card3" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card4" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Target SDK attribute is not targeting latest version</h2>
@@ -368,6 +407,15 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
+<span class="location"><a href="../../../../node_modules/react-native-interactable/android/build.gradle">../../../../node_modules/react-native-interactable/android/build.gradle</a>:8</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
+<span class="lineno">  5 </span>    buildToolsVersion <span class="string">"25.0.2"</span>
+<span class="lineno">  6 </span>    defaultConfig {
+<span class="lineno">  7 </span>        minSdkVersion <span class="number">16</span>
+<span class="caretline"><span class="lineno">  8 </span>        <span class="warning">targetSdkVersion <span class="number">25</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  9 </span>        versionCode <span class="number">1</span>
+<span class="lineno"> 10 </span>        versionName <span class="string">"1.0"</span>
+<span class="lineno"> 11 </span>        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></pre>
+
 <span class="location"><a href="../../../../node_modules/react-native-image-picker/android/build.gradle">../../../../node_modules/react-native-image-picker/android/build.gradle</a>:28</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
 <span class="lineno"> 25 </span>
 <span class="lineno"> 26 </span>    defaultConfig {
@@ -405,11 +453,11 @@ To suppress this error, use the issue id "OldTargetApi" as explained in the <a h
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationOldTargetApiLink" onclick="reveal('explanationOldTargetApi');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card3Link" onclick="hideid('card3');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card4Link" onclick="hideid('card4');">
 Dismiss</button>            </div>
             </div>
           </section><a name="SimpleDateFormat"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card4" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card5" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Implied locale in date format</h2>
@@ -462,11 +510,11 @@ Therefore, you should either use the form of the SimpleDateFormat constructor wh
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSimpleDateFormatLink" onclick="reveal('explanationSimpleDateFormat');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card4Link" onclick="hideid('card4');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card5Link" onclick="hideid('card5');">
 Dismiss</button>            </div>
             </div>
           </section><a name="GradleDependency"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card5" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card6" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Obsolete Gradle Dependency</h2>
@@ -474,13 +522,13 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle">../../build.gradle</a>:144</span>: <span class="message">A newer version of com.android.support:appcompat-v7 than 25.0.0 is available: 25.3.1</span><br /><pre class="errorlines">
-<span class="lineno"> 141 </span>dependencies {
-<span class="lineno"> 142 </span>    compile project(<span class="string">':react-native-image-picker'</span>)
-<span class="lineno"> 143 </span>    compile fileTree(dir: <span class="string">"libs"</span>, include: [<span class="string">"*.jar"</span>])
-<span class="caretline"><span class="lineno"> 144 </span>    <span class="warning">compile <span class="string">"com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 145 </span>    compile <span class="string">"com.facebook.react:react-native:+"</span>  <span class="comment">// From node_modules</span>
-<span class="lineno"> 146 </span>    compile project(<span class="string">':react-native-vector-icons'</span>)
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:145</span>: <span class="message">A newer version of com.android.support:appcompat-v7 than 25.0.0 is available: 25.3.1</span><br /><pre class="errorlines">
+<span class="lineno"> 142 </span>    compile project(<span class="string">':react-native-interactable'</span>)
+<span class="lineno"> 143 </span>    compile project(<span class="string">':react-native-image-picker'</span>)
+<span class="lineno"> 144 </span>    compile fileTree(dir: <span class="string">"libs"</span>, include: [<span class="string">"*.jar"</span>])
+<span class="caretline"><span class="lineno"> 145 </span>    <span class="warning">compile <span class="string">"com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 146 </span>    compile <span class="string">"com.facebook.react:react-native:+"</span>  <span class="comment">// From node_modules</span>
+<span class="lineno"> 147 </span>    compile project(<span class="string">':react-native-vector-icons'</span>)
 </pre>
 
 </div>
@@ -507,11 +555,11 @@ To suppress this error, use the issue id "GradleDependency" as explained in the 
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGradleDependencyLink" onclick="reveal('explanationGradleDependency');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card5Link" onclick="hideid('card5');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card6Link" onclick="hideid('card6');">
 Dismiss</button>            </div>
             </div>
           </section><a name="GradleDynamicVersion"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card6" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card7" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Gradle Dynamic Version</h2>
@@ -535,6 +583,14 @@ Dismiss</button>            </div>
 <span class="caretline"><span class="lineno"> 16 </span>        <span class="warning">classpath <span class="string">'com.android.tools.build:gradle:2.2.+'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 <span class="lineno"> 17 </span>    }
 <span class="lineno"> 18 </span>}
+</pre>
+
+<span class="location"><a href="../../../../node_modules/react-native-interactable/android/build.gradle">../../../../node_modules/react-native-interactable/android/build.gradle</a>:46</span>: <span class="message">Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (com.facebook.react:react-native:+)</span><br /><pre class="errorlines">
+<span class="lineno"> 43 </span>    testCompile <span class="string">'junit:junit:4.12'</span>
+<span class="lineno"> 44 </span>
+<span class="lineno"> 45 </span>    <span class="comment">// node_modules</span>
+<span class="caretline"><span class="lineno"> 46 </span>    <span class="warning">compile <span class="string">'com.facebook.react:react-native:+'</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 47 </span>}
 </pre>
 
 </div>
@@ -561,13 +617,13 @@ To suppress this error, use the issue id "GradleDynamicVersion" as explained in 
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGradleDynamicVersionLink" onclick="reveal('explanationGradleDynamicVersion');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card6Link" onclick="hideid('card6');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card7Link" onclick="hideid('card7');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Performance"></a>
 <a name="UnusedResources"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card7" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card8" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Unused resources</h2>
@@ -616,13 +672,13 @@ To suppress this error, use the issue id "UnusedResources" as explained in the <
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedResourcesLink" onclick="reveal('explanationUnusedResources');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card7Link" onclick="hideid('card7');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card8Link" onclick="hideid('card8');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="Usability"></a>
 <a name="GoogleAppIndexingWarning"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card8" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card9" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Missing support for Firebase App Indexing</h2>
@@ -664,12 +720,12 @@ To suppress this error, use the issue id "GoogleAppIndexingWarning" as explained
               </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGoogleAppIndexingWarningLink" onclick="reveal('explanationGoogleAppIndexingWarning');">
-Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card8Link" onclick="hideid('card8');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card9Link" onclick="hideid('card9');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="MissingIssues"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card9" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card10" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Disabled Checks</h2>
@@ -911,12 +967,12 @@ To suppress this error, use the issue id "UnusedIds" as explained in the <a href
 </div>              </div>
               <div class="mdl-card__actions mdl-card--border">
 <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SuppressedIssuesLink" onclick="reveal('SuppressedIssues');">
-List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card9Link" onclick="hideid('card9');">
+List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="card10Link" onclick="hideid('card10');">
 Dismiss</button>            </div>
             </div>
           </section>
 <a name="SuppressInfo"></a>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card10" style="display: block;">
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="card11" style="display: block;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Suppressing Warnings and Errors</h2>

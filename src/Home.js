@@ -25,13 +25,15 @@ this.state={
 
   }
     render() {
+      const { navigate } = this.props.navigation;
+console.log(this.props.navigation)
         let sideList=null
         let homeList=null
         let notificationsList=null
 
         if(this.state.MenuPressed==true)
         {
-            sideList=<Menu/>
+            sideList=<Menu navigation={this.props.navigation}/>
         }
         if(this.state.HomePressed==true)
         {

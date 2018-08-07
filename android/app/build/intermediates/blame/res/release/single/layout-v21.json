@@ -8,11 +8,27 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\layout-v21\\notification_action.xml"
     },
     {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
         "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_custom_big.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_action_tombstone.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     }
 ]

@@ -9,6 +9,7 @@
   "dependencies": {
     "link": "^0.1.5",
     "react": "16.4.1",
+    "react-devtools": "^3.2.3",
     "react-native": "^0.55.4",
     "react-native-action-bar": "^2.0.5",
     "react-native-deprecated-custom-components": "^0.1.2",
@@ -35,6 +36,7 @@
     "babel-jest": "23.4.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "23.4.1",
+    "react-native-select-lists": "^1.0.1",
     "react-test-renderer": "16.4.1"
   },
   "jest": {

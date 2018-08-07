@@ -5,39 +5,51 @@ import {
     Text,
     View,
     ScrollView,
-    Image
+    Image,TouchableOpacity
 } from 'react-native';
 import { Header } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 export default class Menu extends Component {
     render() {
+        const { navigate } = this.props.navigation;
+
+        console.log(this.props.navigation)
+
         return (
             <ScrollView >
-                <View style={styles.mainContainer}>
+                <TouchableOpacity style={styles.mainContainer}  onPress={() =>{this.props.navigation.navigate('profile', { name: 'Jane' })}}  >
                     <Image style={styles.img} source={require('./img/profilePic.jpg')} />
 
-                    <View>
+                    <View >
 
-                        <Text numberOfLines={1} style={styles.username}> Amira Mahmoud Atef   </Text>
+                        <Text numberOfLines={1} style={styles.username} > Amira Mahmoud Atef   </Text>
 
                         <Text style={styles.text}>View your profile</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
 
-                <View style={styles.section}>
+                <TouchableOpacity style={styles.section}  onPress={() =>{this.props.navigation.navigate('Nuggets', { name: 'Jane' })}}>
                     <Icon name="id-card" size={30} color="#900" />
                     <Text style={styles.text}>Nuggets</Text>
-                </View>
+                </TouchableOpacity>
    <View style={styles.section}>
+                    <Icon name="newspaper" size={30} color="#900" />
+                    <Text style={styles.text}>Articals</Text>
+                </View>
+                <View style={styles.section}>
+                    <Icon name="calendar-alt" size={30} color="#900" />
+                    <Text style={styles.text}>Calender</Text>
+                </View>
+
+ <View style={styles.section}>
                     <Icon name="users" size={30} color="#900" />
                     <Text style={styles.text}>Groups</Text>
                 </View>
 
 
-
                 <View style={styles.section}>
-                    <Icon name="sign-out" size={30} color="#900" />
+                    <Icon name="sign-out-alt" size={30} color="#900" />
                     <Text style={styles.text}>Sign out</Text>
                 </View>
 
