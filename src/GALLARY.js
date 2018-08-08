@@ -39,7 +39,7 @@ getImage(){
 return  (<TouchableWithoutFeedback  key={key}  onPress={()=>this.setModelVisible(true , key)}>
 
 <View style={StyleSheet.imageWrap}>
-<ImageElement  imgsource={val}/>
+<ImageElement  imgsource={val} />
 </View>
 </TouchableWithoutFeedback>)
     })

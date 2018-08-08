@@ -3,8 +3,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Select, Option } from 'react-native-select-lists';
 import Draggable from 'react-native-draggable';
 import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
-import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
+import { Card, ListItem, Button , Rating  } from 'react-native-elements'
+
 import {
     AppRegistry,
     StyleSheet,
@@ -16,7 +17,7 @@ import {
     Platform,
     TextInput
   } from 'react-native';
-export default class Cards extends Component {
+export default class SucessStory extends Component {
     constructor(){
         super()
 
@@ -69,16 +70,31 @@ export default class Cards extends Component {
       }
 
       render() {
+        const { navigate } = this.props.navigation;
+
+        console.log(this.props.navigation)
         return (
             <View>
-                <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
-
 <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
   <View style={styles.ImageContainer}>
     <Icon name="upload" size={30} color="#900" />
   </View>
 </TouchableOpacity>
-<Button title="Show Gallery" />
+<Button title="Choose From Gallery"  onPress={()=>{
+this.props.navigation.navigate('Gallery', { name: 'Jane' })
+}}/>
+<Button title="Back"
+onPress={
+  ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
+
+}/>
+<Button title="Save" onPress={
+  ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
+
+}/>
+
+                <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
+
 </View>
 )
 }

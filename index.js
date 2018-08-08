@@ -10,12 +10,15 @@ import {Login} from './src/Login'
 import ProfilePage from './src/UserProfile'
 import Home from './src/Home'
 import Cards from './src/Cards'
+import Gallery from './src/GALLARY'
 // export const AppNavigator = StackNavigator(Config.navigation);
 const App = DrawerNavigator({
   Login: { screen: Login },
   Home: { screen: Home },
   profile :{screen:ProfilePage},
-  Nuggets:{screen:Cards}
+  Nuggets:{screen:Cards},
+  Gallery:{screen:Gallery},
+
 
 });
 export default App;
