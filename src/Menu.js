@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import { Header } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome5'
+import Meteor, { withTracker, MeteorListView } from 'react-native-meteor';
+
 
 export default class Menu extends Component {
     render() {
@@ -37,21 +39,25 @@ export default class Menu extends Component {
                     <Icon name="newspaper" size={30} color="#900" />
                     <Text style={styles.text}>Articals</Text>
                 </View>
-                <View style={styles.section}>
-                    <Icon name="calendar-alt" size={30} color="#900" />
+                <TouchableOpacity style={styles.section}>
+                    <Icon name="calendar-alt" size={30} color="#900" onPress={() =>{this.props.navigation.navigate('Calender', { name: 'Jane' })}}/>
                     <Text style={styles.text}>Calender</Text>
-                </View>
+                </TouchableOpacity>
 
- <View style={styles.section}>
+ <TouchableOpacity style={styles.section}>
                     <Icon name="users" size={30} color="#900" />
                     <Text style={styles.text}>Groups</Text>
-                </View>
+                </TouchableOpacity>
 
 
-                <View style={styles.section}>
-                    <Icon name="sign-out-alt" size={30} color="#900" />
+                <TouchableOpacity style={styles.section} onPress={
+
+()=>{Meteor.logout()
+this.props.navigation.navigate('Login', { name: 'Jane' })}
+}>
+                    <Icon name="sign-out-alt" size={30} color="#900"  />
                     <Text style={styles.text}>Sign out</Text>
-                </View>
+                </TouchableOpacity>
 
 
             </ScrollView>

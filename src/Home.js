@@ -4,7 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
-ScrollView
+ScrollView,TouchableOpacity 
 } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 
@@ -37,7 +37,7 @@ console.log(this.props.navigation)
         }
         if(this.state.HomePressed==true)
         {
-             homeList=<Posts/>
+             homeList=<Posts navigation={this.props.navigation} />
 
         }
 
@@ -49,7 +49,7 @@ console.log(this.props.navigation)
 //   onClearText={someMethod}
   icon={{ type: 'font-awesome', name: 'search' }}
   placeholder='Type Here...' />
-                <Header>
+                <Header style={{backgroundColor:"#80ffaa"}}>
  <Icon name="home" size={30} color="#900"   onPress={()=>this.setState({HomePressed:true,MenuPressed:false})}/>
 <Icon name="people" size={30} color="#900" />
 <Icon name="notifications" size={30} color="#900" />

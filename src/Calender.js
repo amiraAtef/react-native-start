@@ -1,14 +1,17 @@
 import React from 'react'
-import { Dimensions, View ,Navigator} from 'react-native'
+import { Dimensions, View,TouchableOpacity ,Navigator,Text} from 'react-native'
+
+import DateTimePicker from 'react-native-modal-datetime-picker';
 
 import EventCalendar from 'react-native-events-calendar'
 
 let { width } = Dimensions.get('window')
 
-export  class Calender extends React.Component {
+export default class Calender extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      isDateTimePickerVisible: false,
       events: [
         { start: '2018-09-06 22:30:00', end: '2018-09-06 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2018-09-07 00:30:00', end: '2018-09-07 01:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
@@ -25,7 +28,24 @@ export  class Calender extends React.Component {
         { start: '2018-09-09 00:10:00', end: '2018-09-09 01:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2018-09-10 12:10:00', end: '2018-09-10 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' }
       ]
-    }
+    };
+   
+
+   
+  
+     
+    
+  }
+  _showDateTimePicker = () => {
+          this.setState({ isDateTimePickerVisible: true })
+  
+  };
+ 
+  _hideDateTimePicker = () =>{ this.setState({ isDateTimePickerVisible: false })};
+  _handleDatePicked = (date) => {
+
+    console.log('A date has been picked: ', date);
+    this._hideDateTimePicker();
   }
 
   _eventTapped (event) {
@@ -33,10 +53,23 @@ export  class Calender extends React.Component {
   }
 
   render () {
-    return (
-      <View style={{flex: 1, marginTop: 20}}>
 
+    return (
+      <TouchableOpacity style={{flex: 1, marginTop: 20}}  onPress={this._showDateTimePicker}>
+  {/* <TouchableOpacity onPress={this._showDateTimePicker}>
+          <Text>Show DatePicker</Text>
+        </TouchableOpacity> */}
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={(dateTime)=>this._handleDatePicked(dateTime)}
+          onCancel={()=>this._hideDateTimePicker}
+          mode="datetime"
+          is24Hour={false}
+     
+        />
+        
         <EventCalendar 
+        onPress={this._showDateTimePicker}
           eventTapped={this._eventTapped.bind(this)}
           events={this.state.events}
           width={width}
@@ -44,7 +77,7 @@ export  class Calender extends React.Component {
           initDate={'2018-09-07'}
           scrollToFirst
         />
-      </View>
+      </TouchableOpacity>
     )
   }
 }

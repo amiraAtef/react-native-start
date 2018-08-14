@@ -13,9 +13,9 @@ import {FetchLocation} from './src/FetchLocation'
 // import ActionBar from 'react-native-action-bar';
 // import Tabs from 'react-native-tabs';
 import Draggable from 'react-native-draggable';
-import {Calender} from './src/Calender'
+import Calender from './src/Calender'
 import Nuggets from './src/Nuggets'
-import {Login} from './src/Login'
+import Login from './src/Login'
 import  Settings from './src/Settings'
 import ProfilePage from './src/UserProfile'
 // // import{BestGrid} from './src/Gallery'

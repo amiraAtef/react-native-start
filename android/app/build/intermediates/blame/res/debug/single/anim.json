@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_popup_exit.xml"
-    },
-    {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
@@ -20,60 +20,12 @@
         "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_slide_down.xml"
     },
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_in.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_fade_in.xml"
-    },
-    {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_up.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_slide_up.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tooltip_enter.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\f56a107089078ac462cf811fb776391d1d06ad97\\output\\res\\anim\\tooltip_enter.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_in.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_push_up_in.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
-        "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_push_up_out.xml"
-    },
-    {
-        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\tooltip_exit.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\f56a107089078ac462cf811fb776391d1d06ad97\\output\\res\\anim\\tooltip_exit.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_popup_enter.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
-        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_up.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_slide_up.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_in.xml",
@@ -84,55 +36,31 @@
         "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_push_up_out.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_fade_out.xml"
-    },
-    {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_out.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_fade_out.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_slide_in_top.xml"
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_push_up_out.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_push_up_out.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_in.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\anim\\catalyst_fade_in.xml"
     },
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_fade_in.xml"
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_slide_in_bottom.xml"
     },
     {
         "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
         "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\faa8f4ff80c9ab048ad72d1df247de01853eb756\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_slide_down.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_slide_down.xml"
-    },
-    {
-        "merged": "E:\\MobileApp\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\catalyst_fade_out.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\52e0e60887423895d01aed67e8711dd89f08ad9e\\output\\res\\anim\\catalyst_fade_out.xml"
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\ec0004766816b58f3d288f16fd43f3ee3d0ae4f9\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     }
 ]

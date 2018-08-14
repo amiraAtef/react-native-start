@@ -3,21 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\Amira\.android\build-cache\4fc58eb1e9404bf58ae7a29a98c64075995448a8\output\jars\libs\infer-annotations-4.0.jar"
+        jar="C:\Users\Amira\.android\build-cache\4fc58eb1e9404bf58ae7a29a98c64075995448a8\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_79ade4ec2f53c22b00e10dda8bed4557c71375e2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\react-native-start\node_modules\react-native-image-picker\android\build\intermediates\bundles\default\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ed80840d302bee1f5dd42cefa1fa8e6100100535">
-        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_5e05fe1d00bd0de344623d15195f5b56b68b6607.jar" />
+        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
+        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_e0e87f46c4bd5e434a9e90ea4408db2983a224ad.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,21 +21,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\react-native-start\node_modules\react-native-image-picker\android\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ed80840d302bee1f5dd42cefa1fa8e6100100535">
+        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_5e05fe1d00bd0de344623d15195f5b56b68b6607.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Amira\.android\build-cache\4fc58eb1e9404bf58ae7a29a98c64075995448a8\output\jars\libs\infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\infer-annotations-4.0_79ade4ec2f53c22b00e10dda8bed4557c71375e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\react-native-start\node_modules\react-native-interactable\android\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="ea1a0d0170045d682b23160f5ffe16f2b5479a2a">
         <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_639ad0e0478282c97d869bad8923ba22bc43439b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Amira\.android\build-cache\4fc58eb1e9404bf58ae7a29a98c64075995448a8\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
-        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_e0e87f46c4bd5e434a9e90ea4408db2983a224ad.jar" />
     </item>
 
 </items>
