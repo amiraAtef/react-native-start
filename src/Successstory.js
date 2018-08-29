@@ -5,8 +5,14 @@ import Draggable from 'react-native-draggable';
 import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
 import ImagePicker from 'react-native-image-picker';
 import { Card, ListItem, Button , Rating  } from 'react-native-elements'
+import Interactable from 'react-native-interactable';
+import Holder from 'react-native-draggable-holder'
+// import ReactFileReader from 'react-file-reader';
+import { connect } from 'react-redux';
 
-import {
+import Meteor, { withTracker, MeteorListView , } from 'react-native-meteor';
+
+import ReactNative, { UIManager ,
     AppRegistry,
     StyleSheet,
     Text,
@@ -17,7 +23,7 @@ import {
     Platform,
     TextInput
   } from 'react-native';
-export default class SucessStory extends Component {
+ class SucessStory extends Component {
     constructor(){
         super()
 
@@ -25,10 +31,31 @@ export default class SucessStory extends Component {
     state = {
 
         ImageSource: null,
-        isOpen: false
+        isOpen: false,
+        Type:"",
+        URL:"",
+        text:"",
+        positionImage:{
+          x:0,
+          y:0
+        },
+        postionText:{
+          x:0,
+          y:0 
+        }
       };
-    
+     onDrawerSnap(event) {
+  console.log( "drawer state is ",event.nativeEvent)
+  //  const x = event.nativeEvent.contentOffset.x;
+  // console.log(`drawer state is ${ y},,${x}`);
+}
+onDragEvent(event){
+  console.log(event)
+ console.log( event.nativeEvent.targetSnapPointId)
+}
       selectPhotoTapped() {
+        alert("in")
+
         const options = {
           quality: 1.0,
           maxWidth: 500,
@@ -56,7 +83,7 @@ export default class SucessStory extends Component {
           }
           else {
             let source = { uri: response.uri };
-    
+    console.log("source",source)
             // You can also display the image using data:
             // let source = { uri: 'data:image/jpeg;base64,' + response.data };
     
@@ -68,30 +95,66 @@ export default class SucessStory extends Component {
           }
         });
       }
+      // handleFiles = (files) => {
+      //   console.log("image",files.base64)
+      // }
+      addNugget()
+      {
+      let NuggetDB ={
+        Type:this.props.app.nuggetType,
+        URL:this.state.ImageSource,
+        text:this.state.text,
+        postionImage:{
+          x:this.state.position.x,
+          y:this.state.position.y
+        },
+        postionText:{
+          x:this.state.position.x,
+          y:this.state.position.y
+        }
 
+      }
+
+      console.log("ObjClient",NuggetDB)
+        Meteor.call('addNuggets',NuggetDB)
+
+        this.props.navigation.navigate('Home', { name: 'Jane' })
+      }
       render() {
         const { navigate } = this.props.navigation;
 
         console.log(this.props.navigation)
         return (
             <View>
-<TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
-  <View style={styles.ImageContainer}>
-    <Icon name="upload" size={30} color="#900" />
-  </View>
-</TouchableOpacity>
-<Button title="Choose From Gallery"  onPress={()=>{
+
+    <Icon name="upload" size={30} color="#900" onPress={()=>this.selectPhotoTapped.bind(this)}/>
+
+<Holder reverse={false} >
+ <TextInput
+style={styles.Quote}
+          multiline={true}
+        onChangeText={(text) => this.setState({ text })}
+        />
+</Holder>
+
+  {/* <View style={styles.ImageContainer}> */}
+  {/* </View> */}
+
+
+
+  <View style={styles.container} >
+<Button style={styles.btn} title="Choose From Gallery"  onPress={()=>{
 this.props.navigation.navigate('Gallery', { name: 'Jane' })
 }}/>
-<Button title="Back"
+<Button style={styles.btn} title="Back"
 onPress={
   ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
 
 }/>
-<Button title="Save" onPress={
-  ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
+<Button  style={styles.btn} title="Save" onPress={()=> this.addNugget
 
 }/>
+</View>
 
                 <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
 
@@ -99,14 +162,23 @@ onPress={
 )
 }
 }
+
+const mapStateToProps = (state) => {
+  return {
+
+      ...state
+
+  }
+}
+
+export default connect(mapStateToProps)(SucessStory);
 const styles = StyleSheet.create({
 
 container: {
 flex: 1,
 flexDirection: 'row',
-justifyContent: 'flex-start', alignItems: 'flex-start',
 backgroundColor: '#FFF8E1',
-
+flexWrap:'wrap'
 },
 
 ImageContainer: {
@@ -114,7 +186,6 @@ borderRadius: 10,
 width: 80,
 height: 80,
 borderWidth: 1,
-justifyContent: 'center',
 alignItems: 'center',
 backgroundColor: '#337DFF',
 borderColor: '#fff',
@@ -145,6 +216,18 @@ borderWidth: 5,
 height: 50,
 width:150,
 borderRadius: 10,
+
+},
+btn:{
+  color: 'white',
+  flexWrap: 'wrap', 
+  flexDirection:'row',
+    fontSize: 16,
+    justifyContent: 'center',
+alignItems: 'center',
+borderWidth: 5,
+borderRadius: 10,
+
 
 }
 });

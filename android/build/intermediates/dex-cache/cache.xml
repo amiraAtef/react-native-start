@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\react-native-start\node_modules\react-native-fs\android\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9f43baf353df728737d3a82d7b48e3367a32bca9">
+        <dex dex="E:\react-native-start\android\app\build\intermediates\pre-dexed\debug\classes_722837e8614c5752ae9416322851d8c3c50f46fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\react-native-start\node_modules\react-native-image-picker\android\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
         optimize="true"

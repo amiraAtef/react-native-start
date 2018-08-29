@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\xml\\provider_paths.xml",
+        "source": "E:\\react-native-start\\node_modules\\react-native-image-picker\\android\\build\\intermediates\\bundles\\default\\res\\xml\\provider_paths.xml"
+    },
+    {
+        "merged": "E:\\react-native-start\\android\\app\\build\\intermediates\\res\\merged\\release\\xml\\preferences.xml",
+        "source": "C:\\Users\\Amira\\.android\\build-cache\\4fc58eb1e9404bf58ae7a29a98c64075995448a8\\output\\res\\xml\\preferences.xml"
+    }
+]

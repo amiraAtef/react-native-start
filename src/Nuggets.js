@@ -6,6 +6,8 @@ import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
 import { Button } from 'react-native-elements';
 import ImagePicker from 'react-native-image-picker';
 import Interactable from 'react-native-interactable';
+import { connect } from 'react-redux';
+
 
 import {
   AppRegistry,
@@ -21,7 +23,7 @@ import {
 import { SideMenu, List } from 'react-native-elements'
 import ImageGallery from './GALLARY'
 // import Interactable from 'react-native-interactable';
-export default class Nuggets extends Component {
+class Nuggets extends Component {
   constructor(props) {
     super(props);
 
@@ -45,7 +47,7 @@ export default class Nuggets extends Component {
         cameraRoll: true
       },
     };
-
+alert("in")
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
 
@@ -73,6 +75,9 @@ export default class Nuggets extends Component {
     });
   }
   render() {
+
+    console.log( "image",this.state.ImageSource)
+    console.log("props",this.props)
     const slideAnimation = new SlideAnimation({
       slideFrom: 'bottom',
     });
@@ -80,24 +85,21 @@ export default class Nuggets extends Component {
       <View style={styles.container}>
         <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
 
-        <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+        {/* <TouchableOpacity onPress={()=>this.selectPhotoTapped.bind(this)}>
           <View style={styles.ImageContainer}>
             <Icon name="upload" size={30} color="#900" />
 
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
+
+
+
         <Draggable>
-        <Interactable.View
-  horizontalOnly={true}
-  snapPoints={[{x: 0}, {x: -200}]}
-  onSnap={this.onDrawerSnap}>
-        <TextInput
-style={styles.Quote}
-          multiline={true}
-          numberOfLines={4}
-          // onChangeText={(text) => this.setState({ text })}
-        />
-        </Interactable.View>
+
+
+
+      
 
         </Draggable>
         <Button
@@ -111,14 +113,13 @@ style={styles.Quote}
 
         >
           <View>
-            {/* <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
+           <TouchableOpacity onPress={this.selectPhotoTapped.bind(this)}>
           <View style={styles.ImageContainer}>
             <Icon name="upload" size={30} color="#900" />
 
           </View>
-        </TouchableOpacity>  */}
-            {/* <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} /> */}
-
+        </TouchableOpacity>  
+          <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} /> 
           </View>
 
           <View style={{
@@ -148,17 +149,26 @@ style={styles.Quote}
 
     )
   }
-  // onDrawerSnap(event) {
-  //   const snapPointId = event.nativeEvent.id;
-  //   console.log(`drawer state is ${snapPointId}`);
-  // }
+
 }
+const mapStateToProps = (state) => {
+  return {
+
+    ...state
+
+  }
+}
+const mapDispatchersToProps = (dispatcher) => {
+  return {
+    SetImage: (img) => dispatcher({ type: 'ChooseImage', value: img }),
+    SetNuggetType:(Nug)=>dispatcher({type:'NuggetType',value:Nug})
+}}
+export default connect(mapStateToProps, mapDispatchersToProps)(Nuggets);
 const styles = StyleSheet.create({
 
   container: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-start', alignItems: 'flex-start',
     backgroundColor: '#FFF8E1',
 
   },

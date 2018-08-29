@@ -39,8 +39,8 @@ export default class Menu extends Component {
                     <Icon name="newspaper" size={30} color="#900" />
                     <Text style={styles.text}>Articals</Text>
                 </View>
-                <TouchableOpacity style={styles.section}>
-                    <Icon name="calendar-alt" size={30} color="#900" onPress={() =>{this.props.navigation.navigate('Calender', { name: 'Jane' })}}/>
+                <TouchableOpacity style={styles.section} onPress={() =>{this.props.navigation.navigate('Calender', { name: 'Jane' })}}>
+                    <Icon name="calendar-alt" size={30} color="#900" />
                     <Text style={styles.text}>Calender</Text>
                 </TouchableOpacity>
 

@@ -3,8 +3,11 @@ import React , {Component} from 'react'
 import { AppRegistry, StyleSheet,Text,View } from 'react-native';
 import{Navigator}from 'react-native-deprecated-custom-components'
 import {
-  DrawerNavigator,
+  DrawerNavigator,DrawerItems
 } from 'react-navigation';
+import {Provider} from 'react-redux';
+
+import store from './src/Reducers/store'
 import Config from './src/APPComponents';
 import Login from './src/Login'
 import ProfilePage from './src/UserProfile'
@@ -12,7 +15,7 @@ import Home from './src/Home'
 import Cards from './src/Cards'
 import Gallery from './src/GALLARY'
 import Signup from './src/Signup'
-import Calender from './src/Calender'
+import Calender from './src/CalenderWrap'
 import Meteor from 'react-native-meteor'; Meteor.connect('ws://localhost:3000/websocket');
 // export const AppNavigator = StackNavigator(Config.navigation);
 const App = DrawerNavigator({
@@ -24,30 +27,23 @@ const App = DrawerNavigator({
   Gallery:{screen:Gallery},
 Calender:{screen:Calender}
 
-});
-export default App;
+},
+{
+contentComponent:customDrawerComponent});
 
-// export default class ContentLogin extends Component {
-//    constructor(){
-//      super()
+const customDrawerComponent=(this.props)=(
 
-//    }
-//   render() {
-   
-//     return (
-//   <Navigator initialRoute ={{id:'Login'}} renderScene ={this.navigatorRenderScene} />
-//     )
-//   }
-//   navigatorRenderScene=(route,navigator)=>
-//   {
-//       _navigator = navigator
-//       switch(route.id)
-//       {
-//           case'Login':
-//           return (<Login navigator={navigator}/>)
-//       }
-//   }
-// }
+<DrawerItems {...this.props} />
+)
+export default class index extends Component {
+  render() {
+    return (
+<Provider store={store}>
+<App/>
+        </Provider>
+    )
+  }
+}
 
 
-AppRegistry.registerComponent('MobileApp', () => App);
+AppRegistry.registerComponent('MobileApp', () => index );

@@ -4,6 +4,8 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+// import com.github.xfumihiro.react_native_image_to_base64.ImageToBase64Package;
+import com.rnfs.RNFSPackage;
 import com.wix.interactable.Interactable;
 import com.imagepicker.ImagePickerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -26,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFSPackage(),
             new Interactable(),
             new ImagePickerPackage(),
             new VectorIconsPackage()
