@@ -23,6 +23,8 @@ import {
 import { SideMenu, List } from 'react-native-elements'
 import ImageGallery from './GALLARY'
 // import Interactable from 'react-native-interactable';
+var RCTUIManager = require('NativeModules').UIManager;
+
 class Nuggets extends Component {
   constructor(props) {
     super(props);
@@ -75,16 +77,28 @@ alert("in")
     });
   }
   render() {
-
+   
     console.log( "image",this.state.ImageSource)
     console.log("props",this.props)
     const slideAnimation = new SlideAnimation({
       slideFrom: 'bottom',
     });
+    var view = this.refs['image']; // Where view is a ref obtained through <View ref='ref'/>
+    var handle = React.findNodeHandle(view); 
+    RCTUIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
+       //Do stuff with the values
+       console.log('handle',handle)
+       console.log('handle',x)
+       console.log('handle',y)
+
+
+       
+    })
     return (
       <View style={styles.container}>
-        <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
-
+      <View ref="image">
+        <Draggable renderSize={150} reverse={false} renderShape='image' ref="image" offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
+</View>
         {/* <TouchableOpacity onPress={()=>this.selectPhotoTapped.bind(this)}>
           <View style={styles.ImageContainer}>
             <Icon name="upload" size={30} color="#900" />

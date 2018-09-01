@@ -8,13 +8,15 @@ import { Card, ListItem, Button , Rating  } from 'react-native-elements'
 import Interactable from 'react-native-interactable';
 import Holder from 'react-native-draggable-holder'
 // import ReactFileReader from 'react-file-reader';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import Meteor, { withTracker, MeteorListView , } from 'react-native-meteor';
 
-import ReactNative, { UIManager ,
+import ReactNative, { 
     AppRegistry,
+    findNodeHandle,
     StyleSheet,
+    UIManager,
     Text,
     View,
     PixelRatio,
@@ -23,10 +25,10 @@ import ReactNative, { UIManager ,
     Platform,
     TextInput
   } from 'react-native';
- class SucessStory extends Component {
+ export default class SucessStory extends Component {
     constructor(){
         super()
-
+        this.Measure = this.Measure.bind(this);
     }
     state = {
 
@@ -98,39 +100,80 @@ onDragEvent(event){
       // handleFiles = (files) => {
       //   console.log("image",files.base64)
       // }
-      addNugget()
+      Measure=()=>
       {
-      let NuggetDB ={
-        Type:this.props.app.nuggetType,
-        URL:this.state.ImageSource,
-        text:this.state.text,
-        postionImage:{
-          x:this.state.position.x,
-          y:this.state.position.y
-        },
-        postionText:{
-          x:this.state.position.x,
-          y:this.state.position.y
-        }
-
+        alert("Koko")
+        this.refs.Quote .measure((x,y,width,height)=>{
+      console.log("x",x)
+      console.log("y",y)
+      
+      
+        })
+        // const handle = findNodeHandle(this.refs.Quote);
+        // console.log(handle)
+        // UIManager.measureInWindow(
+        //   handle,x,y, 
+        //   (e) => {console.error(e)}, 
+        //   (x, y, w, h) => {
+        //     console.log('offset', x, y, w, h);
+        //   });
       }
+           
+componentDidMount()
+{
 
-      console.log("ObjClient",NuggetDB)
-        Meteor.call('addNuggets',NuggetDB)
+  // setTimeout(this.Measure(),1000)
+}
+ render() {
+    
+        // setTimeout(this.Measure(),1000)
 
-        this.props.navigation.navigate('Home', { name: 'Jane' })
-      }
-      render() {
         const { navigate } = this.props.navigation;
 
         console.log(this.props.navigation)
+
+       const addNugget=()=>
+        {
+ this.Measure()
+          alert("add")
+      console.log("Props dtory",this.props)    
+        let NuggetDB ={
+          Type:this.props.Nuggettype,
+          URL:this.state.ImageSource,
+          text:this.state.text,
+          postionImage:{
+            x:this.state.positionImage.x,
+            y:this.state.positionImage.y
+          },
+          postionText:{
+            x:this.state.postionText.x,
+            y:this.state.postionText.y
+          }
+  
+        }
+  
+        console.log("ObjClient",NuggetDB)
+          Meteor.call('addNuggets',NuggetDB)
+  
+          this.props.navigation.navigate('Home',NuggetDB)
+        }
         return (
             <View>
 
-    <Icon name="upload" size={30} color="#900" onPress={()=>this.selectPhotoTapped.bind(this)}/>
-
-<Holder reverse={false} >
+    <Icon name="upload" size={30} color="#900" onPress={this.selectPhotoTapped.bind(this)}/>
+    <View
+ref="Quote"
+>
+<Holder   reverse={false} >
  <TextInput
+ onLayout={event => {
+  const layout = event.nativeEvent.layout;
+  console.log('height:', layout.height);
+  console.log('width:', layout.width);
+  console.log('x:', layout.x);
+  console.log('y:', layout.y);
+}}
+
 style={styles.Quote}
           multiline={true}
         onChangeText={(text) => this.setState({ text })}
@@ -138,7 +181,7 @@ style={styles.Quote}
 </Holder>
 
   {/* <View style={styles.ImageContainer}> */}
-  {/* </View> */}
+   </View> 
 
 
 
@@ -151,27 +194,29 @@ onPress={
   ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
 
 }/>
-<Button  style={styles.btn} title="Save" onPress={()=> this.addNugget
-
-}/>
+<Button  style={styles.btn} title="Save" onPress={this.Measure}/>
 </View>
 
-                <Draggable renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
+                <Draggable  renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
 
 </View>
 )
 }
 }
+// const mapDispatchersToProps = (dispatcher) => {
+//   return {
+//     isDbClicked: (DBclick) => dispatcher({ type: 'dbClicked', value: DBclick }),
+// }}
 
-const mapStateToProps = (state) => {
-  return {
+// const mapStateToProps = (state) => {
+//   return {
 
-      ...state
+//       ...state.app
 
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps)(SucessStory);
+// export default connect(mapStateToProps, mapDispatchersToProps)(SucessStory);
 const styles = StyleSheet.create({
 
 container: {

@@ -47,7 +47,7 @@ class Cards extends Component {
         console.log("current value", this.props.app.currentcomponent)
         if (this.props.app.currentcomponent =='Success Story' ) {
 
-            SuccessStory = <Successstory navigation={this.props.navigation} />
+            SuccessStory = <Successstory navigation={this.props.navigation} Nuggettype={this.props.app.currentcomponent} />
             provideService=null
             provideProduct = null
 
