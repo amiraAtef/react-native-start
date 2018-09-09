@@ -22,6 +22,7 @@
     "react-input-calendar": "^0.5.3",
     "react-native": "^0.55.4",
     "react-native-action-bar": "^2.0.5",
+    "react-native-android-back-button": "^0.3.0",
     "react-native-deprecated-custom-components": "^0.1.2",
     "react-native-dialog": "^5.1.0",
     "react-native-double-click": "^1.0.5",

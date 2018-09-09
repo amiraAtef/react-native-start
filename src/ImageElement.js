@@ -9,6 +9,7 @@ StyleSheet
 
 export default class ImageElement extends Component {
   render() {
+    console.log("this.props.imgsource",this.props.imgsource)
     return (
    <Image source={this.props.imgsource} style={StyleSheet.image}></Image>
     )

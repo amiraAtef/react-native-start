@@ -34,19 +34,21 @@ constructor(){
 state={
   modalVisible:false,
   pictureBase64:"",
-modalImage: require('./img/1.jpg'),
+modalImage:'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350',
 Images:[
-  require('./img/2.jpg'),
-require('./img/3.jpg'),
- require('./img/4.jpg'),
+ { image:"https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"},
+ { image:"https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"},
+ { image:"https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"},
 ]
 }
 
-setModelVisible( visible, key){
+setModelVisible( visible, item){
+  console.log("item",item)
+  console.log("img", item.image)
 
   console.log("img", this.state.Images)
   this.setState({
-    modalImage:this.state.Images[key]
+    modalImage:item.image
     
   })
 
@@ -54,8 +56,6 @@ setModelVisible( visible, key){
     modalVisable:visible
   })
 }
-
-
 
 
 
@@ -68,30 +68,13 @@ submit=()=>{
   
 }
   render() {
-// alert("koko")
-// const fileReader = new FileReader();
-// fileReader.onload = fileLoadedEvent => {
-//   console.log("fileLoadedEvent",fileLoadedEvent)
-//   const base64Image = fileLoadedEvent.target.result;
-//   console.log(base64Image)
-// };
-// fileReader.readAsDataURL(require('./img/2.jpg')); 
 
-    // console.log("img", this.state.modalImage)
-    // RNFS.readFile('./img/2.jpg', 'base64')
-    // .then(res =>{
-    //   console.log(res);
-    // });
-    // RNFS.readFile( this.state.modalImage, 'base64')
-    // .then(res =>{
-    //   console.log(res);
-    // });
-    let images = this.state.Images.map((val,key)=>{
-      console.log(val)
-return  (<TouchableWithoutFeedback  key={key}  onPress={()=>this.setModelVisible( true, key)}>
+    let images = this.state.Images.map((item)=>{
+      console.log(item.image)
+return  (<TouchableWithoutFeedback  key={item}  onPress={()=>this.setModelVisible( true, item)}>
 
 <View>
-<ImageElement  imgsource={val} />
+<ImageElement  imgsource={item.image} />
 </View>
 </TouchableWithoutFeedback>)
     })

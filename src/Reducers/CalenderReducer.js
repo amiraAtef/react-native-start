@@ -5,7 +5,9 @@ const initialState = {
     image:null,
     nuggetType:"",
     currentcomponent:null,
-    Eventadded:null
+    Eventadded:null,
+    Visible:false,
+    ProviderID:""
 
 }
 
@@ -44,6 +46,20 @@ const reducer = (state = initialState, action) => {
             ...state,
             Eventadded:action.value
         }
+    }
+    else if (action.type=="ModalState")
+    {
+        console.log(action.value)
+        return{
+            ...state,
+            Visible:action.value
+
+        }
+    }
+    else if (action.type=="SelectedProvider")
+    return{
+        ...state,
+        ProviderID:action.value
     }
     
         return state;

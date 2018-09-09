@@ -6,31 +6,10 @@ import {
   View,
   ImageBackground, TextInput, TouchableOpacity, AsyncStorage,
 } from 'react-native';
-// import Jimp from 'jimp/es';
-
-// Jimp.read('./img/2.jpg')
-//   .then(image => {
-//     // do stuff with the image
-
-//     console.log(image)
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     // handle an exception
-//   });
-// var file = './img.2.jpg'
-// var reader = new FileReader();
-// reader.readAsDataURL(file);
-// reader.onload = function () {
-//   console.log("loadedImgag",reader.result);
-// };
 import RNFS from 'react-native-fs';
-
-import Meteor, { withTracker, MeteorListView , } from 'react-native-meteor';
-Meteor.connect('ws://localhost:3000//websocket');
- class Login extends Component {
-
-
+import Meteor, { withTracker, MeteorListView, } from 'react-native-meteor';
+import { Nuggets ,Reservation} from './Collection/index'
+class Login extends Component {
   constructor() {
     super()
     this.state = {
@@ -40,6 +19,10 @@ Meteor.connect('ws://localhost:3000//websocket');
     }
   }
 
+componentDidUpdate()
+{
+
+}
   login = () => {
     let email = this.state.email
     let password = this.state.password
@@ -49,12 +32,22 @@ Meteor.connect('ws://localhost:3000//websocket');
         console.log(err)
       }
     });
-    let currentUser = Meteor.subscribe('myuser');
-    console.log("currentUser", Meteor.user())
-console.log(this.props.currentUser)
-    if(this.props.currentUser)
-    {
-      this.props.navigation.navigate('Home', { name: 'Jane' })
+
+
+    if (!this.props.currentuserhandleLoading&& !this.props.nuggetshandeLoading && !this.props.reservationshandelLoading) {
+      console.log(this.props.currentUser,this.props.Nuggetslist,this.props.reservationsList)
+    Meteor.call('GetAllNuggets',(error,result) => {
+        if(error)
+        {
+          console.log("error",error)
+        }
+        else {
+          console.log("result",result);
+        }
+
+    })
+
+      this.props.navigation.navigate('Home')
 
     }
 
@@ -63,35 +56,6 @@ console.log(this.props.currentUser)
 
 
   render() {
-    // url='./img/2.jpg'
-    //   const filename = url.split('/').pop();
-    //   // feel free to change main path according to your requirements
-    // var path=`${RNFS.DocumentDirectoryPath}/${filename}`;
-    // console.log("lolo",path)
-    // // RNFS.DocumentDirectoryPath='https://drive.google.com/open?id=1sBaVZXdtYwzmeyIUfNrbTtQ8Q67OsBNW'
-    // // console.log("path",RNFS.DocumentDirectoryPath)
-    // RNFS.readDir('https://drive.google.com/open?id=1sBaVZXdtYwzmeyIUfNrbTtQ8Q67OsBNW') // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
-    //   .then((result) => {
-    //     console.log('GOT RESULT', result);
-     
-    //     // stat the first file
-    //     return Promise.all([RNFS.stat(result[0].path), result[0].path]);
-    //   })
-    //   .then((statResult) => {
-    //     if (statResult[0].isFile()) {
-    //       // if we have a file, read it
-    //       return RNFS.readFile(statResult[1], 'utf8');
-    //     }
-     
-    //     return 'no file';
-    //   })
-    //   .then((contents) => {
-    //     // log the file contents
-    //     console.log(contents);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message, err.code);
-    //   });
 
     const { navigate } = this.props.navigation;
 
@@ -106,11 +70,11 @@ console.log(this.props.currentUser)
               style={styles.input} placeholder='email'>
             </TextInput>
             <TextInput
-  ref= {(el) => { this.password = el; }}
+              ref={(el) => { this.password = el; }}
 
               underlineColorAndroid='transparent' style={styles.input}
-              onChangeText={(password) => this.setState({password})}
-secureTextEntry={true}
+              onChangeText={(password) => this.setState({ password })}
+              secureTextEntry={true}
               value={this.state.password}
               placeholder='Password'
             >
@@ -137,9 +101,19 @@ secureTextEntry={true}
   }
 }
 
-
-
-
+export default withTracker(props => {//---------->changed 
+const currentuserhandle=  Meteor.subscribe('myuser')
+  const nuggetshande = Meteor.subscribe('nuggets')
+  const reservationshandel = Meteor.subscribe('reservations')
+  return {
+    currentuserhandleLoading: !currentuserhandle.ready(),
+    nuggetshandeLoading: !nuggetshande.ready(),
+    reservationshandelLoading: !reservationshandel.ready(),
+    currentUser: Meteor.user(),
+    Nuggetslist: Nuggets.find(),
+    reservationsList: Reservation.find({ userID: Meteor.userId() })
+  }
+})(Login)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -203,10 +177,3 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 })
-export default withTracker(props=>{//---------->changed 
-  const handel = Meteor.subscribe('myuser')
-  return {
-    currentUser: Meteor.user(),
-      listLoading: !handel.ready(),
-  }
-})(Login)

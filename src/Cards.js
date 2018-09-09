@@ -53,7 +53,7 @@ class Cards extends Component {
 
         }
         if (this.props.app.currentcomponent =='Provide Service') {
-            provideService = <ProvideService />
+            provideService = <ProvideService  navigation={this.props.navigation} Nuggettype={this.props.app.currentcomponent}/>
             SuccessStory = null
             provideProduct=null
 
@@ -61,7 +61,7 @@ class Cards extends Component {
         }
         if (this.props.app.currentcomponent =='Provide Product')
         {
-            provideProduct = <ProvideProduct/>
+            provideProduct = <ProvideProduct navigation={this.props.navigation} Nuggettype={this.props.app.currentcomponent}/>
             provideService=null
             SuccessStory = null
 

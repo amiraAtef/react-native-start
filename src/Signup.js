@@ -4,8 +4,8 @@ import { View, Text, Button } from 'native-base';
 
 import GenerateForm from 'react-native-form-builder';
 import Meteor, { withTracker, MeteorListView ,Accounts } from 'react-native-meteor';
-Meteor.connect('ws://localhost:3000//websocket')
-
+// const Nuggets =Meteor.collection('nuggets');
+//  const reservations =Meteor.collection('reservations');
 const styles = {
     wrapper: {
       flex: 1,
@@ -22,6 +22,13 @@ const styles = {
     {
       type: 'text',
       name: 'user_name',
+      required: true,
+      icon: 'ios-person',
+      label: 'email',
+    },
+    {
+      type: 'text',
+      name: 'UserName',
       required: true,
       icon: 'ios-person',
       label: 'Username',
@@ -52,8 +59,14 @@ const styles = {
       options: ['US', 'INDIA', 'UK', 'CHINA', 'FRANCE','EGYPT'],
     },
   ];
-  class Signup extends Component {
+  export default class Signup extends Component {
     signup() {
+
+      // console.log("this.props.currentUser",this.props.currentUser)
+      // if(this.props.currentUser)
+      // {
+      // this.props.navigation.navigate('Home',Newuser)
+      // }
         let Newuser={
             user_name:"",
             password:"",
@@ -65,20 +78,34 @@ const styles = {
      let password = Newuser.password
      let Country = Newuser.country
       let UserType = Newuser.userType
-      if(this.props.currentUser)
-      {
-      this.props.navigation.navigate('Home',Newuser)
-      }
-  console.log(Accounts)
-      Accounts.createUser({email, password,Country,UserType},(err) => {
+      let UserName = Newuser.UserName
+    
+      Accounts.createUser({email, password,Country,UserType,UserName},(err) => {
         if (err) {
-   console.log( err.reason);
+   console.log("err", err.reason);
+        }
+        else{
+          alert("success")
         }
       })
-      this.props.navigation.navigate('Home',Newuser)
 
+      // console.log("this.props.currentUser",this.props.currentUser)
+
+      // if(this.props.currentUser&& this.props.list &&this.props.reservationsList)
+      //     {
+    
+          this.props.navigation.navigate('Home',{"type":UserType})
+          // }
+      // if(this.props.currentUser)
+      // {
+      // this.props.navigation.navigate('Home',Newuser)
+      // }
     }
+componentDidUpdate()
+{
+  
 
+}
     render() {
 
 
@@ -102,10 +129,14 @@ const styles = {
     }
   }
 
-  export default withTracker(props=>{//---------->changed 
-    const handel = Meteor.subscribe('myuser')
-    return {
-      currentUser: Meteor.user(),
-        listLoading: !handel.ready(),
-    }
-  })(Signup)
+  // export default withTracker(props=>{//---------->changed 
+  //   const handel = Meteor.subscribe('myuser')
+  //   const handel1 = Meteor.subscribe('nuggets')
+  //   const handel2 = Meteor.subscribe('reservations')
+  //   return {
+  //     listLoading: !handel.ready(),
+  //     currentUser: Meteor.userId(),
+  //     list: Nuggets.find(),
+  //     reservationsList:reservations.find({userID:Meteor.userId()})
+  //   }
+  // })(Signup)

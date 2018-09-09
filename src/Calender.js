@@ -6,7 +6,7 @@ import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import DoubleClick from 'react-native-double-click';
 import Meteor, { withTracker, MeteorListView , } from 'react-native-meteor';
-
+import { Reservation} from './Collection/index'
 import { connect } from 'react-redux';
 
 
@@ -32,60 +32,42 @@ let { width } = Dimensions.get('window')
       End: '',
       isDateTimePickerVisible: false,
       events: [
-        { start: '2018-08-22 00:30:00', end: '2018-08-22 01:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+       /* { start: '2018-08-22 00:30:00', end: '2018-08-22 01:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2018-08-23 01:30:00', end: '2017-08-23 02:20:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2018-08-24 04:10:00', end: '2017-081-24 04:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2018-08-24 04:10:00', end: '2017-081-24 04:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },*/
       ],
       lastPress:0
     };
+  
   }
-componentWillReceiveProps()
-{
-  // this.setState(prevState => ({
-  //   events: [...prevState.events, this.props.app.Eventadded]
-  //  }))
-  }
+
   _eventTapped(event) {
     alert(JSON.stringify(event))
   }
 
-//   componentWillReceiveProps()
-//   {
-//     console.log("Calender", this.props.app.clicked)
-//   if( this.props.app.clicked)
-//   {
+   componentDidUpdate()
+  {
+    let obj= Reservation.find({ userID: this.userId })
+    console.log("Resevations",obj)
 
-//     this.setModalVisible(true)
-//   }
-// }
+Object.keys(obj).forEach((key)=>{
+  var item = obj[key];
+     let EventUI = {
+       start: item.Event.start,
+       end: item.Event.end,
+       title: item.Event.title,
+       summary:`${item.Event.Notes}
+       Status: ${item.status}
+       `
+     }
+     this.setState({ events: [...this.state.events, EventUI] })
+   })}
+ 
   render() {
-  console.log(",,,,,",this.state.modalVisible)
+    console.log("Events",this.state.events)
+    let obj= Reservation.find({ userID: this.userId })
     var currentDate = moment().format("YYYY-MM-DD");
-    var EventdateFormate = ""
-    _handleDatePicked = (date) => {
-      EventdateFormate = moment(date).format('MM-DD-YYYY HH:mm:ss')
-      var pickedTimeFormate = moment(EventdateFormate).format("hh:mm a")
-      var pickedDateFormate = moment(EventdateFormate).format("MM-DD-YYYY")
-
-
-      console.log('A EventdateFormate: ', EventdateFormate);
-      console.log('A pickedDateFormate: ', pickedDateFormate);
-      console.log('A pickedTimeFormate: ', pickedTimeFormate);
-
-      if (this.state.start) {
-        this.setState({ End: DateFormate })
-        this.setState({ EventDateFormateEnd: EventdateFormate })
-        console.log("EventEnd", EventDateFormateEnd)
-      }
-      else {
-        this.setState({ start: DateFormate })
-        this.setState({ EventDateFormateStart: EventdateFormate })
-        console.log("EventEnd", EventDateFormateStart)
-
-      }
-      this._hideDateTimePicker();
-
-    }
+  
     return (
 <TouchableNativeFeedback>
 
@@ -97,11 +79,6 @@ componentWillReceiveProps()
           initDate={currentDate}
           scrollToFirst
         />
-
-
-
-
-
 </TouchableNativeFeedback>
 
     )
@@ -118,8 +95,17 @@ const mapDispatchersToProps = (dispatcher) => {
   return {
     isDbClicked: (DBclick) => dispatcher({ type: 'dbClicked', value: DBclick }),
 }}
+const Apptracker= withTracker(props=>{
+  const handel = Meteor.subscribe('reservations')
 
-export default connect(mapStateToProps, mapDispatchersToProps)(Calender);
+  return {
+    currentUser: Meteor.user(),
+      listLoading: !handel.ready(),
+      
+      list:reservations.find({userID:Meteor.userId()})
+  }
+})(Calender)
+export default connect(mapStateToProps, mapDispatchersToProps)(Apptracker);
 
 const styles = StyleSheet.create({
   container: {

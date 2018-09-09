@@ -7,9 +7,6 @@ import ImagePicker from 'react-native-image-picker';
 import { Card, ListItem, Button , Rating  } from 'react-native-elements'
 import Interactable from 'react-native-interactable';
 import Holder from 'react-native-draggable-holder'
-// import ReactFileReader from 'react-file-reader';
-// import { connect } from 'react-redux';
-
 import Meteor, { withTracker, MeteorListView , } from 'react-native-meteor';
 
 import ReactNative, { 
@@ -17,6 +14,7 @@ import ReactNative, {
     findNodeHandle,
     StyleSheet,
     UIManager,
+    ScrollView,
     Text,
     View,
     PixelRatio,
@@ -37,7 +35,7 @@ import ReactNative, {
         Type:"",
         URL:"",
         text:"",
-        positionImage:{
+        postionImage:{
           x:0,
           y:0
         },
@@ -47,16 +45,13 @@ import ReactNative, {
         }
       };
      onDrawerSnap(event) {
-  console.log( "drawer state is ",event.nativeEvent)
-  //  const x = event.nativeEvent.contentOffset.x;
-  // console.log(`drawer state is ${ y},,${x}`);
+
 }
 onDragEvent(event){
   console.log(event)
  console.log( event.nativeEvent.targetSnapPointId)
 }
       selectPhotoTapped() {
-        alert("in")
 
         const options = {
           quality: 1.0,
@@ -97,35 +92,57 @@ onDragEvent(event){
           }
         });
       }
-      // handleFiles = (files) => {
-      //   console.log("image",files.base64)
-      // }
+
+     
       Measure=()=>
       {
-        alert("Koko")
-        this.refs.Quote .measure((x,y,width,height)=>{
-      console.log("x",x)
-      console.log("y",y)
+        this.refs.Quote .measure((x,y,width,height, px , py)=>{
+
+          this.setState(prevState => ({
+            postionText: {
+                ...prevState.postionText,
+                x: px,
+                y:py
+            }
+        }))
+
       
+    
       
         })
-        // const handle = findNodeHandle(this.refs.Quote);
-        // console.log(handle)
-        // UIManager.measureInWindow(
-        //   handle,x,y, 
-        //   (e) => {console.error(e)}, 
-        //   (x, y, w, h) => {
-        //     console.log('offset', x, y, w, h);
-        //   });
+
       }
            
 componentDidMount()
 {
+  console.log("RenderRefs",this.refs)
 
   // setTimeout(this.Measure(),1000)
 }
+componentWillReceiveProps(){
+  console.log("componentWillReceivePropsRefs",this.refs)
+
+}
  render() {
-    
+   console.log("componentDidMountRefs",this.refs)
+  MeasureImage=()=>
+  {
+    // alert("Koko2")
+
+    this.refs.image.measure((x,y,width,height, px , py)=>{
+      console.log("x image ",x, px)
+      console.log("y image ",y, py)
+      this.setState(prevState => ({
+        postionImage: {
+            ...prevState.postionImage,
+            x: px,
+            y:py
+        }
+    }))
+    })
+
+  }
+  console.log("imaggggggggggggggge", this.state.ImageSource) 
         // setTimeout(this.Measure(),1000)
 
         const { navigate } = this.props.navigation;
@@ -135,15 +152,14 @@ componentDidMount()
        const addNugget=()=>
         {
  this.Measure()
-          alert("add")
-      console.log("Props dtory",this.props)    
+//  this.MeasureImage
         let NuggetDB ={
           Type:this.props.Nuggettype,
           URL:this.state.ImageSource,
           text:this.state.text,
           postionImage:{
-            x:this.state.positionImage.x,
-            y:this.state.positionImage.y
+            x:this.state.postionImage.x,
+            y:this.state.postionImage.y
           },
           postionText:{
             x:this.state.postionText.x,
@@ -159,45 +175,35 @@ componentDidMount()
         }
         return (
             <View>
-
-    <Icon name="upload" size={30} color="#900" onPress={this.selectPhotoTapped.bind(this)}/>
-    <View
-ref="Quote"
->
-<Holder   reverse={false} >
- <TextInput
- onLayout={event => {
-  const layout = event.nativeEvent.layout;
-  console.log('height:', layout.height);
-  console.log('width:', layout.width);
-  console.log('x:', layout.x);
-  console.log('y:', layout.y);
-}}
-
-style={styles.Quote}
-          multiline={true}
-        onChangeText={(text) => this.setState({ text })}
-        />
-</Holder>
-
-  {/* <View style={styles.ImageContainer}> */}
-   </View> 
-
-
-
-  <View style={styles.container} >
-<Button style={styles.btn} title="Choose From Gallery"  onPress={()=>{
-this.props.navigation.navigate('Gallery', { name: 'Jane' })
-}}/>
+              
+{/* /*
 <Button style={styles.btn} title="Back"
 onPress={
   ()=>  this.props.navigation.navigate('Home', { name: 'Jane' })
 
 }/>
-<Button  style={styles.btn} title="Save" onPress={this.Measure}/>
-</View>
+*/}
 
-                <Draggable  renderSize={150} reverse={false} renderShape='image' offsetX={0} offsetY={0} imageSource={this.state.ImageSource} />
+<Icon name="upload" size={30} color="#900" onPress={this.selectPhotoTapped.bind(this)}/>
+
+<Holder 
+ pressDragRelease={this.Measure}  reverse={false} >
+ <TextInput  ref="Quote"
+style={styles.Quote}
+          multiline={true}
+        onChangeText={(text) => this.setState({ text })}
+        />
+</Holder> 
+<Holder  offsetX={100} offsetY={100} reverse={false}  pressDragRelease={MeasureImage} renderShape="image"imageSource={null} >
+  <Image  style={{width:300,height:300}} ref="image" source={this.state.ImageSource} />
+</Holder>
+<Button  style={styles.btn} title="Save" onPress={addNugget}/> 
+
+<Button style={styles.btn} title="Choose From Gallery"  onPress={()=>{
+this.props.navigation.navigate('Gallery', { name: 'Jane' })
+}}/> 
+
+
 
 </View>
 )

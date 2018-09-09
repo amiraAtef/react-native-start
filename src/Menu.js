@@ -9,14 +9,13 @@ import {
 } from 'react-native';
 import { Header } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import Meteor, { withTracker, MeteorListView } from 'react-native-meteor';
+import Meteor from 'react-native-meteor';
 
 
 export default class Menu extends Component {
     render() {
         const { navigate } = this.props.navigation;
 
-        console.log(this.props.navigation)
 
         return (
             <ScrollView >
@@ -25,7 +24,7 @@ export default class Menu extends Component {
 
                     <View >
 
-                        <Text numberOfLines={1} style={styles.username} > Amira Mahmoud Atef   </Text>
+                        <Text numberOfLines={1} style={styles.username} >{Meteor.user().profile.UserName} </Text>
 
                         <Text style={styles.text}>View your profile</Text>
                     </View>
@@ -39,7 +38,7 @@ export default class Menu extends Component {
                     <Icon name="newspaper" size={30} color="#900" />
                     <Text style={styles.text}>Articals</Text>
                 </View>
-                <TouchableOpacity style={styles.section} onPress={() =>{this.props.navigation.navigate('Calender', { name: 'Jane' })}}>
+                <TouchableOpacity style={styles.section} onPress={() =>{this.props.navigation.navigate('Calender',{})}}>
                     <Icon name="calendar-alt" size={30} color="#900" />
                     <Text style={styles.text}>Calender</Text>
                 </TouchableOpacity>
